@@ -20,8 +20,8 @@ install(FILES $<TARGET_FILE:SDL2_ttf::SDL2_ttf> DESTINATION ${CMAKE_INSTALL_BIND
 # For development:
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory
-  ../assets
+  ${PROJECT_SOURCE_DIR}/src/assets
   $<TARGET_FILE_DIR:${APP_NAME}>/../share)
 
 # For distribution:
-install(DIRECTORY ../assets DESTINATION ${CMAKE_INSTALL_DATADIR})
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/assets DESTINATION ${CMAKE_INSTALL_DATADIR})
