@@ -1,4 +1,4 @@
-# Copy .so files on Linux to the target App build folder.
+# Copy library files on Linux to the target App build folder.
 # For development:
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
@@ -11,9 +11,9 @@ add_custom_command(TARGET ${APP_NAME} POST_BUILD
 
 # For distribution:
 install(FILES $<TARGET_FILE:SDL2::SDL2> DESTINATION ${CMAKE_INSTALL_BINDIR}
-  RENAME ${APP_NAME}-$<TARGET_FILE_NAME:SDL2::SDL2>)
+  RENAME ${APP_NAME}_$<TARGET_FILE_NAME:SDL2::SDL2>)
 install(FILES $<TARGET_FILE:SDL2_ttf::SDL2_ttf> DESTINATION ${CMAKE_INSTALL_BINDIR}
-  RENAME ${APP_NAME}-$<TARGET_FILE_NAME:SDL2_ttf::SDL2_ttf>)
+  RENAME ${APP_NAME}_$<TARGET_FILE_NAME:SDL2_ttf::SDL2_ttf>)
 
 # Copy assets into app bundle
 # For development:
@@ -33,4 +33,5 @@ configure_file(
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop
   DESTINATION share/applications)
 install(FILES ${PROJECT_SOURCE_DIR}/src/assets/icons/BaseAppIcon.png
-  DESTINATION share/pixmaps)
+  DESTINATION share/pixmaps
+  RENAME ${APP_NAME}_icon.png)
