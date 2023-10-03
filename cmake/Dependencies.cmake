@@ -3,10 +3,10 @@ include(FetchContent)
 FetchContent_Declare(
   SDL2
   GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
-  GIT_TAG release-2.26.5
+  GIT_TAG release-2.28.4
 )
 
-set(SDL2_DISABLE_SDL2MAIN ON)
+option(SDL2_DISABLE_SDL2MAIN "Disable building/installation of SDL2main" ON)
 FetchContent_MakeAvailable(SDL2)
 
 FetchContent_Declare(
