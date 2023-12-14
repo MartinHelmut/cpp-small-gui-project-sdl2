@@ -1,10 +1,10 @@
-# Get dynamic SDL2 lib into Frameworks folder in app bundle for development.
+# Get dynamic SDL2 lib into Frameworks folder in app bundle.
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
   $<TARGET_FILE:SDL2::SDL2>
   $<TARGET_FILE_DIR:${APP_NAME}>/../Frameworks/$<TARGET_FILE_NAME:SDL2::SDL2>)
 
-# Get dynamic SDL2_ttf lib into Frameworks folder in app bundle for development.
+# Get dynamic SDL2_ttf lib into Frameworks folder in app bundle.
 # Though, in this case the whole folder content will be copied to retrieve possible
 # alias names for SDL2_ttf.
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
