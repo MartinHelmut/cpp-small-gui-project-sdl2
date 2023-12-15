@@ -1,3 +1,14 @@
+# Static assets
+target_sources(${APP_NAME} PUBLIC
+  ${SHARED_STATIC_ASSETS}
+  assets/icons/icon.ico
+  assets/manifests/app.rc
+  assets/manifests/App.manifest)
+
+# Platform dependent sources
+target_sources(${APP_NAME} PRIVATE
+  platform/windows/Resources.cpp platform/windows/DPIHandler.cpp)
+
 # Use main entry for Windows GUI app.
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /subsystem:windows /entry:mainCRTStartup")
 

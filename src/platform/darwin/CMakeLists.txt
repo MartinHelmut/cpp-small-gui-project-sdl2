@@ -1,3 +1,15 @@
+# Static assets
+set(MACOSX_STATIC_ASSETS
+  ${SHARED_STATIC_ASSETS}
+  assets/icons/icon.icns)
+set_source_files_properties(${MACOSX_STATIC_ASSETS}
+  PROPERTIES MACOSX_PACKAGE_LOCATION ${CMAKE_INSTALL_DATADIR})
+target_sources(${APP_NAME} PUBLIC ${MACOSX_STATIC_ASSETS})
+
+# Platform dependent sources
+target_sources(${APP_NAME} PRIVATE
+  platform/darwin/Resources.cpp platform/darwin/DPIHandler.cpp)
+
 # Get dynamic SDL2 lib into Frameworks folder in app bundle.
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different

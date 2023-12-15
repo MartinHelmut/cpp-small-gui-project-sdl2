@@ -1,3 +1,10 @@
+# Static assets
+target_sources(${APP_NAME} PRIVATE ${SHARED_STATIC_ASSETS})
+
+# Platform dependent sources
+target_sources(${APP_NAME} PRIVATE
+  platform/linux/Resources.cpp platform/linux/DPIHandler.cpp)
+
 # Copy library files on Linux to the target App build folder.
 # For development:
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
