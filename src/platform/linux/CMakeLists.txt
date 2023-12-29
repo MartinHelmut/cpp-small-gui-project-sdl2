@@ -33,12 +33,12 @@ add_custom_command(TARGET ${APP_NAME} POST_BUILD
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/assets DESTINATION ${CMAKE_INSTALL_DATADIR})
 
 # Linux app icon setup
+set(ENTRY_NAME "${PROJECT_COMPANY_NAMESPACE}.${APP_NAME}")
 configure_file(
   ${PROJECT_SOURCE_DIR}/src/assets/manifests/App.desktop.in
-  ${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop
-  @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop
+  ${CMAKE_CURRENT_BINARY_DIR}/${ENTRY_NAME}.desktop)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${ENTRY_NAME}.desktop
   DESTINATION share/applications)
-install(FILES ${PROJECT_SOURCE_DIR}/src/assets/icons/BaseAppIcon.png
+install(FILES ${PROJECT_SOURCE_DIR}/src/assets/icons/LinuxIcon.png
   DESTINATION share/pixmaps
   RENAME ${APP_NAME}_icon.png)
