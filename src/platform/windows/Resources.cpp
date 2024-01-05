@@ -1,7 +1,6 @@
 #include "Resources.hpp"
 
 #include <SDL.h>
-#include <fmt/format.h>
 
 namespace App {
 
