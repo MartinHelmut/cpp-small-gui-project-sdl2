@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=@APP_NAME@
-GenericName=@CMAKE_PROJECT_NAME@
-Comment=@CMAKE_PROJECT_DESCRIPTION@
-Exec=@APP_NAME@
-Icon=@ENTRY_NAME@_icon
-Type=Application
-Categories=Miscellaneous;
